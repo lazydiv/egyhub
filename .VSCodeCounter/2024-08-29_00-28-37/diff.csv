@@ -1,0 +1,22 @@
+"filename", "language", "JSON", "TypeScript JSX", "TypeScript", "Prisma", "comment", "blank", "total"
+"d:\egyhub\egyhub\app\(main)\(routes)\servers\[serverId]\channels\[channelId]\page.tsx", "TypeScript JSX", 0, 43, 0, 0, 0, 15, 58
+"d:\egyhub\egyhub\app\(main)\(routes)\servers\[serverId]\conversations\[memberId]\page.tsx", "TypeScript JSX", 0, 30, 0, 0, 0, 11, 41
+"d:\egyhub\egyhub\app\(main)\(routes)\servers\[serverId]\page.tsx", "TypeScript JSX", 0, 21, 0, 0, 0, 9, 30
+"d:\egyhub\egyhub\app\api\channels\[channelId]\route.ts", "TypeScript", 0, 0, 95, 0, 0, 29, 124
+"d:\egyhub\egyhub\app\api\servers\route.ts", "TypeScript", 0, 0, 0, 0, 0, 1, 1
+"d:\egyhub\egyhub\components\chats\chat-header.tsx", "TypeScript JSX", 0, 26, 0, 0, 0, 9, 35
+"d:\egyhub\egyhub\components\mobile-toggle.tsx", "TypeScript JSX", 0, 30, 0, 0, 0, 10, 40
+"d:\egyhub\egyhub\components\models\create-channel-modal.tsx", "TypeScript JSX", 0, 8, 0, 0, 0, 7, 15
+"d:\egyhub\egyhub\components\models\delete-channel-modal.tsx", "TypeScript JSX", 0, 81, 0, 0, 0, 11, 92
+"d:\egyhub\egyhub\components\models\edit-channel-modal.tsx", "TypeScript JSX", 0, 155, 0, 0, 0, 30, 185
+"d:\egyhub\egyhub\components\providers\model-provider.tsx", "TypeScript JSX", 0, 4, 0, 0, 0, 0, 4
+"d:\egyhub\egyhub\components\server\server-channel.tsx", "TypeScript JSX", 0, 11, 0, 0, 0, -1, 10
+"d:\egyhub\egyhub\components\server\server-member.tsx", "TypeScript JSX", 0, 42, 0, 0, 0, 9, 51
+"d:\egyhub\egyhub\components\server\server-sidebar.tsx", "TypeScript JSX", 0, 63, 0, 0, -8, 27, 82
+"d:\egyhub\egyhub\components\ui\sheet.tsx", "TypeScript JSX", 0, 125, 0, 0, 0, 16, 141
+"d:\egyhub\egyhub\hooks\use-model-store.tsx", "TypeScript JSX", 0, 3, 0, 0, 0, 0, 3
+"d:\egyhub\egyhub\lib\conversation.ts", "TypeScript", 0, 0, 89, 0, 7, 23, 119
+"d:\egyhub\egyhub\lib\db.ts", "TypeScript", 0, 0, 0, 0, 0, 2, 2
+"d:\egyhub\egyhub\package-lock.json", "JSON", 1913, 0, 0, 0, 0, 0, 1913
+"d:\egyhub\egyhub\prisma\schema.prisma", "Prisma", 0, 0, 0, 46, 0, 29, 75
+"Total", "-", 1913, 642, 184, 46, -1, 237, 3021
