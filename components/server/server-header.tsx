@@ -4,8 +4,8 @@ import { ServerWithMembersWithProfiles } from "@/types"
 import { MemberRole, Server } from "@prisma/client"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 
-import { ChevronDown, Delete, LogOut, PlusCircle, Settings, UserPlus, Users } from "lucide-react";
-import { TrashIcon } from "@radix-ui/react-icons";
+import { ChevronDown, Delete, LogOut, PlusCircle, Settings, TrashIcon, UserPlus, Users } from "lucide-react";
+
 import { useModel } from "@/hooks/use-model-store";
 
 

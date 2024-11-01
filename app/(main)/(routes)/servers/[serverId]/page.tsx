@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-import { Sometype_Mono } from "next/font/google";
 
 interface ServerIdPageProps {
   params: {

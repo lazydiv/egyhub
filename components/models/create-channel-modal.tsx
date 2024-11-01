@@ -175,7 +175,7 @@ export const CreateChannelModel = () => {
                             />
                         </div>
                         <DialogFooter className='py-4'>
-                            <Button variant={'primary'} className='w-full' disabled={isLoading}>Create new account . </Button>
+                            <Button variant={'primary'} className='w-full' disabled={isLoading}>Create new Channel </Button>
                         </DialogFooter>
                     </form>
                 </Form>
