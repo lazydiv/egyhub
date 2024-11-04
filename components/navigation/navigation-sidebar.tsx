@@ -9,6 +9,7 @@ import Image from "next/image";
 import { NavigationItem } from "@/components/navigation/navigation-item";
 import { ModeToggle } from "../toggle";
 import { UserButton } from "@clerk/nextjs";
+import { Pointer } from "lucide-react";
 
 export const NavigationSidebar = async () => {
     const profile = await currentProfile();
@@ -25,18 +26,18 @@ export const NavigationSidebar = async () => {
             }
         }
     })
-    
+
     return (
         <div className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-white border-r dark:border-neutral-700 dark:bg-zinc-900 py-3 ">
             <NavigationAction />
-            <Separator 
+            <Separator
                 className="h-[2px] bg-zinc-300 dark:bg-neutral-700 
                 rounded-md w-10 mx-auto"
             />
             <ScrollArea className='flex-1 items-center  w-full'>
                 {servers.map((server) => (
-                    <NavigationItem 
-                        imageUrl={server.imageUrl} 
+                    <NavigationItem
+                        imageUrl={server.imageUrl}
                         name={server.name}
                         id={server.id}
                         key={server.id}
@@ -45,14 +46,21 @@ export const NavigationSidebar = async () => {
             </ScrollArea>
             <div className="pb-3 flex mt-auto items-center flex-col gap-y-4">
                 <ModeToggle />
-                <UserButton 
-                    afterSignOutUrl="/"
-                    appearance={{
-                        elements: {
-                            avatrBox:  "h-[20px] w-[20px] rounded-[8px] group-hover:"
-                        }
-                    }}
-                />
+                <div className="z-50">
+
+                    <UserButton
+                        afterSignOutUrl="/"
+                        
+                        appearance={{
+                        
+                            elements: {
+                                userButtonPopoverCard: { pointerEvents: 'initial'},
+                               
+                                avatrBox: "h-[20px] w-[20px] rounded-[8px] group-hover:"
+                            }
+                        }}
+                    />
+                </div>
             </div>
         </div>
     )
