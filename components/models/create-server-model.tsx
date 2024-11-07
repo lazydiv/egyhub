@@ -7,8 +7,7 @@ import {
     DialogFooter,
     DialogHeader,
     DialogDescription
-
-} from '@/components/ui/dialog'
+} from '@/components/ui/dialog';
 
 import * as z from 'zod';
 import axios from 'axios';
@@ -24,39 +23,44 @@ import {
     FormControl,
     FormMessage
 } from '@/components/ui/form';
-import {FileUpload} from '../file-uplaod'
+import { FileUpload } from '../file-uplaod';
 
 import { Input } from '@/components/ui/input';
 import { useEffect, useState } from 'react';
 import { useModel } from '@/hooks/use-model-store';
 
-const formSchema = z.object({
+const urlRegex = new RegExp(
+    '^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+    '(\\#[-a-z\\d_]*)?$', 'i' // fragment locator
+);
 
+const formSchema = z.object({
     name: z.string().min(1, {
         message: 'server name is required'
     }),
     imageUrl: z.string().min(1, {
         message: 'server image is required'
-    }),
-})
-
-
+    }).refine((url) => urlRegex.test(url), {
+        message: 'Invalid URL format'
+    })
+});
 
 export const CreateServerModel = () => {
-    const {isOpen, type, onClose} = useModel();
+    const { isOpen, type, onClose } = useModel();
     const router = useRouter();
     const isModelOpen = isOpen && type === 'CreateServer';
 
-    const form = useForm(
-        {
-            resolver: zodResolver(formSchema),
-            defaultValues: {
-                name: '',
-                imageUrl: '',
-            }
+    const form = useForm({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: '',
+            imageUrl: '',
         }
-    );
-
+    });
 
     const isLoading = form.formState.isSubmitting;
 
@@ -64,19 +68,17 @@ export const CreateServerModel = () => {
         try {
             await axios.post('/api/servers', values);
             form.reset();
-            router.refresh()
+            router.refresh();
             onClose();
         } catch (error) {
-
-
             console.log(error);
         }
-    }
-    const onCloseModel = () => {
-        form.reset()
-        onClose()
-    }
+    };
 
+    const onCloseModel = () => {
+        form.reset();
+        onClose();
+    };
 
     return (
         <Dialog open={isModelOpen} onOpenChange={onCloseModel}>
@@ -84,7 +86,7 @@ export const CreateServerModel = () => {
                 <DialogHeader>
                     <DialogTitle className='text-red-500 dark:text-yellow-50 text-center text-xl'>Create New Server !</DialogTitle>
                 </DialogHeader>
-                <Form {...form} >
+                <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
                         <div className='space-y-8 '>
                             <div className=' flex items-center justify-center text-center'>
@@ -93,8 +95,8 @@ export const CreateServerModel = () => {
                                     name='imageUrl'
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormControl >
-                                                <FileUpload 
+                                            <FormControl>
+                                                <FileUpload
                                                     endpoint='serverImage'
                                                     value={field.value}
                                                     onChange={field.onChange}
@@ -107,37 +109,27 @@ export const CreateServerModel = () => {
                             <FormField
                                 control={form.control}
                                 name='name'
-
-
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel
-                                            className='uppercase text-xm font-bold  text-yellow-50'
-
-                                        >
+                                        <FormLabel className='uppercase text-xm font-bold text-yellow-50'>
                                             server name
                                         </FormLabel>
-                                        <FormControl >
+                                        <FormControl>
                                             <Input
                                                 disabled={isLoading}
                                                 placeholder='Enter server name'
-
                                                 {...field}
                                             />
-
                                         </FormControl>
                                         <FormMessage className='text-red-600 absolute text-xs' />
                                     </FormItem>
                                 )}
                             />
                         </div>
-
-
                         <Button variant={'primary'} className='w-full' disabled={isLoading}>Create</Button>
-
                     </form>
                 </Form>
             </DialogContent>
         </Dialog>
-    )
-}
+    );
+};
