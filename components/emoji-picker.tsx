@@ -31,7 +31,7 @@ export const EmojiPicker = ({
         className='bg-transparent border-none shadow-none transition drop-shadow-none mb-20'
       >
         <Picker 
-          theme={theme}
+          theme={theme === 'dark' ? 'dark' : 'light'}
           
           data={data}
           onEmojiSelect={(emoji: any) => onChange(emoji.native)}
